@@ -2,7 +2,7 @@
  * @Author: LiangSong(sl12160010@gmail.com)
  * @Date: 2023-03-10 21:18:35
  * @LastEditors: LiangSong(sl12160010@gmail.com)
- * @LastEditTime: 2023-03-27 02:35:39
+ * @LastEditTime: 2023-03-27 02:41:39
  * @FilePath: /Open-Llama/README_en.md
  * @Description: 
  * 
@@ -34,8 +34,8 @@ When training language models, we aim to build a universal model that can be use
 ## **Requirements**
 - Python 3.7 or higher
 - PyTorch 1.11 or higher
-- Transformers library
-- Accelerate library
+- [Transformers library](https://huggingface.co/docs/transformers/index)
+- [Accelerate library](https://huggingface.co/docs/accelerate/index)
 - CUDA 11.1 or higher version (for GPU acceleration, tested based on CUDA 11.7)
 ## **Getting Started**
 ### Installation
@@ -81,7 +81,7 @@ Check the DataLoader output with the following command:
 python3 dataset/pretrain_dataset.py
 ```
 ### Model Structure
-We modified the Llama model in the Transformers library based on section 2.4 "Efficient Implementation" in the original paper and introduced some optimizations from other papers. Specifically, we introduced the memory_efficient_attention operation from the xformers library by META for computing self-attention, which significantly improves performance by about 30%. Please refer to modeling_llama.py for details.
+We modified the [Llama](https://github.com/facebookresearch/llama) model in the Transformers library based on section 2.4 "Efficient Implementation" in the original paper and introduced some optimizations from other papers. Specifically, we introduced the memory_efficient_attention operation from the [xformers library](https://github.com/facebookresearch/xformers) by META for computing self-attention, which significantly improves performance by about 30%. Please refer to modeling_llama.py for details.
 
 We also referred to Bloom for introducing stable embeddings for better training of token embeddings.
 
@@ -163,7 +163,7 @@ The paper mentions that they trained the 6.7B model with 1T tokens, and the GPU 
 2. Realease the pre-trained checkpoint for the multi-lingual Llama 6.9B model.
 3. Implement instruction-tuning code and open-source related checkpoints.
 Build an online demo using Gradio.
-4. Use Triton to add more high-performance operators and further improve performance.
+4. Use [Triton](https://github.com/openai/triton) to add more high-performance operators and further improve performance.
 5. Add code for building pre-training datasets based on Common Crawl and open-source related datasets.
 6. Add code for multi-modal training.
 ## Citation

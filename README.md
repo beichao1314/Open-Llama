@@ -2,7 +2,7 @@
  * @Author: LiangSong(sl12160010@gmail.com)
  * @Date: 2023-03-10 21:18:35
  * @LastEditors: LiangSong(sl12160010@gmail.com)
- * @LastEditTime: 2023-03-27 02:34:07
+ * @LastEditTime: 2023-03-27 02:40:54
  * @FilePath: /Open-Llama/README.md
  * @Description: 
  * 
@@ -41,8 +41,8 @@ Open-Llama是一个开源项目，提供了一整套用于构建大型语言模�
 
 - Python 3.7 或更高版本
 - PyTorch 1.11 或更高版本
-- Transformers 库
-- Accelerate库
+- [Transformers库](https://huggingface.co/docs/transformers/index)
+- [Accelerate库](https://huggingface.co/docs/accelerate/index)
 - CUDA 11.1 或更高版本（用于 GPU 加速，基于CUDA11.7进行测试）
 
 ## **入门指南**
@@ -91,8 +91,8 @@ python3 dataset/pretrain_dataset.py
 ```
 
 ### 模型结构
-我们基于Transformers库中的Llama参考论文原文中的2.4 Efficient implementation一节进行了修改，
-同时还参考了一些其他论文引入了一些优化。具体来说，我们引入了由META开源的xformers库中的memory_efficient_attention操作来进行
+我们基于Transformers库中的[Llama](https://github.com/facebookresearch/llama)参考论文原文中的2.4 Efficient implementation一节进行了修改，
+同时还参考了一些其他论文引入了一些优化。具体来说，我们引入了由META开源的[xformers库](https://github.com/facebookresearch/xformers)中的memory_efficient_attention操作来进行
 Self Attention的计算，这对于性能有明显的提升，提升大约30%。
 具体可以参见[modeling_llama.py](https://github.com/Bayes-Song/transformers/blob/main/src/transformers/models/llama/modeling_llama.py#L240)
 
@@ -174,7 +174,7 @@ Total mult-adds (G): 6.89
 2. 开源预训练好的多语言Llama 6.9B的checkpoint
 3. 实现Instruction-tuning代码，并开源相关checkpoint
 4. 使用Gradio搭建在线Demo
-5. 使用Triton加入更多高性能算子，进一步提升性能
+5. 使用[Triton](https://github.com/openai/triton)加入更多高性能算子，进一步提升性能
 6. 加入根据Common Crawl构建预训练数据集相关代码，并开源相关数据集
 7. 加入多模态训练代码
 
