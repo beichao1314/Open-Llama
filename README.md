@@ -2,13 +2,15 @@
  * @Author: LiangSong(sl12160010@gmail.com)
  * @Date: 2023-03-10 21:18:35
  * @LastEditors: LiangSong(sl12160010@gmail.com)
- * @LastEditTime: 2023-03-27 02:15:19
+ * @LastEditTime: 2023-03-27 02:34:07
  * @FilePath: /Open-Llama/README.md
  * @Description: 
  * 
  * Copyright (c) 2023 by LiangSong(sl12160010@gmail.com), All Rights Reserved. 
 -->
 # Open-Llama
+
+[English](https://github.com/Bayes-Song/Open-Llama/blob/main/README_en.md)
 
 Open-Llama是一个开源项目，提供了一整套用于构建大型语言模型的训练流程，从数据集准备到分词、预训练、指令调优，以及强化学习技术 RLHF。
 
@@ -54,7 +56,10 @@ pip install -r requirements.txt
 
 ### 数据集准备
 
-目前给出了智源开源的悟道数据集和EleutherAI开源的the pile数据集。数据集下载和处理代码在data目录下。运行下面的命令进行数据下载并进行分片
+目前给出了智源开源的悟道数据集和EleutherAI开源的the pile数据集。数据集下载和处理代码在data目录下。
+其中悟道数据集由于需要同意一些协议才能下载因此可能需要修改一下download_wudao中的链接，[悟道](https://data.baai.ac.cn/details/WuDaoCorporaText)。
+
+运行下面的命令进行数据下载并进行分片
 ```bash
 bash data/download_the_pile.sh
 bash data/download_wudao.sh
