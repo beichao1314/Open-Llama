@@ -1,3 +1,13 @@
+'''
+Author: LiangSong(sl12160010@gmail.com)
+Date: 2023-03-18 00:06:41
+LastEditors: LiangSong(sl12160010@gmail.com)
+LastEditTime: 2023-03-27 01:09:20
+FilePath: /Open-Llama/dataset/validation.py
+Description: 
+
+Copyright (c) 2023 by LiangSong(sl12160010@gmail.com), All Rights Reserved. 
+'''
 val_set = [
     '白日依山尽，',
     '君不见，黄河之水天上来，奔流到海不复回。君不见，',
@@ -7,7 +17,7 @@ val_set = [
     '这是一个斗气决定一切的大陆。在加玛帝国乌坦城，有个天才少年萧炎打破了所有族人的修炼纪录，一时间万人敬仰，众人艳羡。但不知为何，',
     '人工智能技术在图像识别领域取得了很大的进展，然而在复杂场景下仍然存在一些问题，例如',
     'In recent years, there has been increasing interest in the use of machine learning to',
-    '已知三个数分别为1, 2, 3，求它们的平均数是',
+    '已知三个数分别为1, 2, 3，则它们的平均数是',
     '小明总共有15个苹果，他分别给了3个人两个苹果，然后自己又吃了一个苹果，那么它还剩几个苹果？',
     '根据牛顿第二定律，物体的加速度等于',
     '碳纳米管是一种新型的材料，具有非常独特的电学和光学性质。在过去的几年中，我们对碳纳',

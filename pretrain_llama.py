@@ -2,7 +2,7 @@
 Author: LiangSong(sl12160010@gmail.com)
 Date: 2023-03-17 14:27:28
 LastEditors: LiangSong(sl12160010@gmail.com)
-LastEditTime: 2023-03-26 23:33:41
+LastEditTime: 2023-03-27 01:07:25
 FilePath: /Open-Llama/pretrain_llama.py
 Description: 
 pretrain GPT
@@ -111,7 +111,7 @@ for data_step in range(num_training_steps):
         optim.zero_grad()
         if accelerator.sync_gradients:
             global_step += 1
-    if data_step % log_interval == 0 and accelerator.is_main_process:
+    if data_step % log_interval == 0 and data_step > 0 and accelerator.is_main_process:
         cost_time = time.time() - start_time
         start_time = time.time()
         tokens = train_batch_size * log_interval * max_length
