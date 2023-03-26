@@ -2,7 +2,7 @@
  * @Author: LiangSong(sl12160010@gmail.com)
  * @Date: 2023-03-10 21:18:35
  * @LastEditors: LiangSong(sl12160010@gmail.com)
- * @LastEditTime: 2023-03-27 02:12:37
+ * @LastEditTime: 2023-03-27 02:15:19
  * @FilePath: /Open-Llama/README.md
  * @Description: 
  * 
@@ -64,7 +64,7 @@ bash data/download_wudao.sh
 其中the pile数据集包含210607728行json line，悟道数据集包含59132213行json line。
 
 具体数据格式如下
-```json
+```
 WuDao
 {'id': 1, 'dataType': '百科', 'title': 'some title', 'content': 'some content'}
 
@@ -174,3 +174,12 @@ Total mult-adds (G): 6.89
 7. 加入多模态训练代码
 
 ## 引用
+
+```
+@misc{openllama,
+  title={Open-Llama},
+  author={Liang Song},
+  year={2023},
+  howpublished={\url{https://github.com/Bayes-Song/Open-Llama}},
+}
+```
