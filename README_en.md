@@ -24,11 +24,11 @@ We believe that ease of use is one of the most important features when building 
 ### High Performance
 Since training large language models is costly, high performance is also crucial when building large-scale language models. To achieve high-performance training, we employ the following techniques:
 
-- **Fused CUDA kernel**: Using fused CUDA kernels provided by xformers can fuse multiple operations together, reducing data transfer between GPU and CPU, and improving training efficiency.
-- **Parallel training**: We use the Accelerate library to support parallel training on multiple GPUs, accelerating the training process.
+- **Fused CUDA kernel**: Using fused CUDA kernels provided by [xformers](https://github.com/facebookresearch/xformers) can fuse multiple operations together, reducing data transfer between GPU and CPU, and improving training efficiency.
+- **Parallel training**: We use the [Accelerate](https://huggingface.co/docs/accelerate/index) library to support parallel training on multiple GPUs, accelerating the training process.
 
 
-For 7B mode, the training speed of the Llama model using the PyTorch native version in the Transformers library is 1378 tokens/s/GPU. With our code, the training speed reaches 3290 tokens/s/GPU, which is close to the reported 3370 tokens/s/GPU in the Llama paper.
+For 7B mode, the training speed of the Llama model using the PyTorch native version in the Transformers library is 1378 tokens/s/GPU. With our code, the training speed reaches 3290 tokens/s/GPU, which is close to the reported 3370 tokens/s/GPU in the [Llama paper](https://arxiv.org/pdf/2302.13971.pdf).
 If we pretrain with 500 billion tokens, it will take 43,000 GPU hours. Assuming the price of A100-80G Spot on Google Cloud is $12.6 per hour for 8 GPUs, the total cost will be $67,725.
 Without acceleration, the cost would be $158,744. Our method reduces the training cost by $90,019 in total.
 
@@ -99,7 +99,7 @@ We use the Accelerate library for multi-GPU parallel training. Launch training w
 ```bash
 accelerate launch --config_file configs/default_config.yaml pretrain_llama.py
 ```
-We use Wandb for training visualization and you need to modify the environment variable WANDB_API_KEY.
+We use [Wandb](https://wandb.ai/) for training visualization and you need to modify the environment variable WANDB_API_KEY.
 
 We use DeepSpeed stage 1 to reduce GPU memory usage. Accelerate-related configurations can be found in configs/default_config.yaml.
 

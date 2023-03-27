@@ -27,10 +27,10 @@ Open-Llama是一个开源项目，提供了一整套用于构建大型语言模�
 
 由于训练大语言模型的成本高昂，因此在构建大型语言模型时，高性能也是非常重要的。为了实现高性能的训练，我们发布使用了以下技术：
 
-- **Fused CUDA kernel**：使用xformers中提供的 fused CUDA kernel 可以将多个操作融合在一起，减少了 GPU 和 CPU 之间的数据传输，从而提高了训练效率。
-- **并行化训练**：我们使用Accelerate库支持在多个 GPU 上进行并行化训练，以加快训练速度。
+- **Fused CUDA kernel**：使用[xformers](https://github.com/facebookresearch/xformers)中提供的 fused CUDA kernel 可以将多个操作融合在一起，减少了 GPU 和 CPU 之间的数据传输，从而提高了训练效率。
+- **并行化训练**：我们使用[Accelerate](https://huggingface.co/docs/accelerate/index)库支持在多个 GPU 上进行并行化训练，以加快训练速度。
 
-对于7B模型，使用Transformers中Pytorch原生版本的Llama模型训练训练速度为1378 token/s/gpu，使用本代码库训练速度达到3290 token/s/gpu，基本达到Llama原文中的3370 token/s/gpu。
+对于7B模型，使用Transformers中Pytorch原生版本的Llama模型训练训练速度为1378 token/s/gpu，使用本代码库训练速度达到3290 token/s/gpu，基本达到[Llama原文](https://arxiv.org/pdf/2302.13971.pdf)中的3370 token/s/gpu。
 如果使用500B token进行预训练，需要训练43000 GPU时。按照Google Cloud上A100-80G Spot的价格计算，8卡每小时价格为12.6美元，则总价格为67725美元。
 当使用未加速版本训练时，价格为158744美元。最终降低训练成本9万美元。
 ### 通用性
@@ -108,7 +108,7 @@ Self Attention的计算，这对于性能有明显的提升，提升大约30%。
 ```bash
 accelerate launch --config_file configs/default_config.yaml pretrain_llama.py
 ```
-我们使用Wandb进行训练的可视化，需要自行修改环境变量 WANDB_API_KEY 。
+我们使用[Wandb](https://wandb.ai/)进行训练的可视化，需要自行修改环境变量 WANDB_API_KEY 。
 
 其中我们使用了DeepSpeed stage1以减少显存占用。accelerate相关配置可见configs/default_config.yaml。
 
