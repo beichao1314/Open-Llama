@@ -30,6 +30,9 @@ Open-Llama是一个开源项目，提供了一整套用于构建大型语言模�
 - **Fused CUDA kernel**：使用xformers中提供的 fused CUDA kernel 可以将多个操作融合在一起，减少了 GPU 和 CPU 之间的数据传输，从而提高了训练效率。
 - **并行化训练**：我们使用Accelerate库支持在多个 GPU 上进行并行化训练，以加快训练速度。
 
+对于7B模型，使用Transformers中Pytorch原生版本的Llama模型训练训练速度为1378 token/s/gpu，使用本代码库训练速度达到3290 token/s/gpu，基本达到Llama原文中的3370 token/s/gpu。
+如果使用500B token进行预训练，需要训练43000 GPU时。按照Google Cloud上A100-80G Spot的价格计算，8卡每小时价格为12.6美元，则总价格为67725美元。
+当使用未加速版本训练时，价格为158744美元。最终降低训练成本9万美元。
 ### 通用性
 
 在训练语言模型时，我们希望能够构建一个通用的模型，可以适用于不同的语言和不同的领域。为了实现这一点，我们采用了以下策略：
@@ -132,6 +135,10 @@ Trainable params: 6,885,879,808
 Non-trainable params: 0
 Total mult-adds (G): 6.89
 ```
+
+目前的进展
+![](assets/loss.png)
+
 ### Instruction-Tuning
 
 ### RLHF
